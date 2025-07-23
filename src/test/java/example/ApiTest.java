@@ -28,7 +28,6 @@ public class ApiTest {
                 .contentType(ContentType.JSON)
                 .when().post()
                 .then().statusCode(200);
-
     }
 
 }
