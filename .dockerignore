@@ -1,0 +1,3 @@
+echo ".gradle" >> .dockerignore
+echo "build" >> .dockerignore
+echo ".idea" >> .dockerignoredocker build -t 2025_pro_tests .

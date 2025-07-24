@@ -17,6 +17,8 @@ dependencies {
 
     // Selenide (последняя стабильная версия)
     testImplementation("com.codeborne:selenide:7.2.3")
+    testImplementation("org.seleniumhq.selenium:selenium-java:4.15.0")
+    testImplementation("io.github.bonigarcia:webdrivermanager:5.6.3")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
     testImplementation("io.qameta.allure:allure-junit5:2.24.0")  // Интеграция с JUnit 5
