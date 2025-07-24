@@ -1,42 +1,44 @@
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+.idea/
 *.iml
 *.ipr
+*.iws
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+.idea_modules/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+### Gradle ###
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+### System ###
 .DS_Store
+Thumbs.db
+
+### Logs ###
+*.log
+logs/
+
+### Dependency cache ###
+**/.classpath
+**/.project
+**/.settings/
+
+### Test reports ###
+**/test-output/
+**/test-results/
+**/surefire-reports/
+**/failsafe-reports/
+**/allure-results/
+
+### Environment ###
+.env
+*.env
