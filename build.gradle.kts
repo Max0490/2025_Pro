@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("io.qameta.allure") version "2.11.2"  // Плагин для Allure
 }
 
 repositories {
@@ -17,6 +18,10 @@ dependencies {
     // Selenide (последняя стабильная версия)
     testImplementation("com.codeborne:selenide:7.2.3")
 
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("io.qameta.allure:allure-junit5:2.24.0")  // Интеграция с JUnit 5
+    testImplementation("io.qameta.allure:allure-commandline:2.24.0")  // Генерация отчётов
+
     // Вспомогательные библиотеки
     testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.slf4j:slf4j-simple:2.0.12") // Логирование для Selenide
@@ -24,5 +29,19 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    systemProperty("selenide.headless", "true") // Опционально: запуск в headless-режиме
+    systemProperty("selenide.headless", "true")
+    systemProperty("allure.results.directory", "build/allure-results")  // Куда со// Опционально: запуск в headless-режиме
+}
+
+allure {
+    adapter {
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.24.0")  // Версия адаптера
+            }
+        }
+    }
+    report {
+        reportDir.set(file("build/allure-report"))  // Где создавать отчёт
+    }
 }

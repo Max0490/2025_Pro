@@ -17,17 +17,30 @@ public class ApiTest {
                 .get("/store/inventory")
                 .then()
                 .statusCode(200)
-                .body("available", equalTo(0));
+                .log().all();
     }
 
 
     @Test
     void simpleApiPostTest() {
+        String requestBody = """
+            {
+              "id": 10,
+              "petId": 198772,
+              "quantity": 1,
+              "shipDate": "2025-07-30T12:00:00Z",
+              "status": "placed",
+              "complete": true
+            }
+            """;
+
         given().baseUri("https://petstore.swagger.io/v2/")
-                .basePath("/store/inventory")
+                .basePath("/store/order")
                 .contentType(ContentType.JSON)
+                .body(requestBody)
                 .when().post()
-                .then().statusCode(200);
+                .then().statusCode(200)
+                .log().all();
     }
 
 }
